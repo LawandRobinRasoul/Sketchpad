@@ -1,6 +1,9 @@
 const container = document.querySelector(".container");
 const setBtn = document.querySelector(".set-btn");
 let bool = false;
+let mouseDown = false;
+document.body.onmousedown = () => (mouseDown = true);
+document.body.onmouseup = () => (mouseDown = false);
 addGrids();
 
 setBtn.addEventListener("click", function () {
@@ -28,14 +31,16 @@ function addGrids(bool) {
 function fillContainer(grids) {
 	for (let i = 0; i < grids; i++) {
 		const newGrid = document.createElement("div");
-		container.appendChild(newGrid);
 		newGrid.classList.add("grid");
-		newGrid.addEventListener("mouseover", function (e) {
-			mouseOver(e);
-		});
+		newGrid.addEventListener("mouseover", mouseOver);
+		newGrid.addEventListener("mousedown", mouseOver);
+		container.appendChild(newGrid);
 	}
 }
 
 function mouseOver(e) {
-	e.target.classList.add("colored");
+	if (e.type === "mouseover" && !mouseDown) return;
+	else {
+		e.target.classList.add("colored");
+	}
 }
