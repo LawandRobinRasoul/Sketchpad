@@ -1,5 +1,6 @@
 const container = document.querySelector(".container");
 const setBtn = document.querySelector(".set-btn");
+const clearBtn = document.querySelector(".clear-btn");
 let bool = false;
 let mouseDown = false;
 document.body.onmousedown = () => (mouseDown = true);
@@ -9,6 +10,16 @@ addGrids();
 setBtn.addEventListener("click", function () {
 	addGrids(true);
 });
+
+clearBtn.addEventListener("click", clearGrids);
+
+function clearGrids() {
+	const grids = document.getElementsByClassName("grid");
+
+	for (const grid of grids) {
+		grid.classList.remove("colored");
+	}
+}
 
 function addGrids(bool) {
 	let grids = 256;
@@ -22,6 +33,8 @@ function addGrids(bool) {
 		);
 
 		fillContainer(grids);
+
+		document.querySelector(".grid-value").value = "";
 	} else {
 		container.replaceChildren();
 		fillContainer(grids);

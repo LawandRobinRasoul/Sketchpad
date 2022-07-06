@@ -6,11 +6,35 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="style.css" />
 		<script src="app.js" defer></script>
+		<link
+			href="https://fonts.googleapis.com/css2?family=VT323&display=swap"
+			rel="stylesheet"
+		/>
 		<title>Sketchpad</title>
 	</head>
 	<body>
-		<input type="text" placeholder="Numbers of squares..." class="grid-value" />
-		<button class="set-btn">Set</button>
-		<div class="container"></div>
+		<h1>Skissa på ditt konstverk!</h1>
+		<div class="flex">
+			<div class="left">
+				<h2>Size (Max:100)</h2>
+				<div class="size">
+					<input type="text" placeholder="Grid Size.." class="grid-value" />
+					<button class="set-btn">Set</button>
+				</div>
+				<h2>Clear</h2>
+				<div class="Clear">
+					<button class="clear-btn">Clear</button>
+				</div>
+			</div>
+			<div class="right">
+				<div class="container"></div>
+			</div>
+		</div>
+		<footer>
+			<p>
+				This site was created by Lawand Rasoul and it is a part of The Odin
+				Project
+			</p>
+		</footer>
 	</body>
 </html>
